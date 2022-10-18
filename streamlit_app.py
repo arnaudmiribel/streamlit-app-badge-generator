@@ -23,11 +23,11 @@ This app helps you finding the ideal **custom** [Shields badge](https://shields.
 # simple_icons = [""] + get_simple_icons()
 
 st.subheader("Step 1: Give your inputs")
-middle = st.columns(7)[3]
-middle.image("https://img.shields.io/badge/Left-Right-red")
+# middle = st.columns(7)[3]
+# middle.image("https://img.shields.io/badge/Left-Right-red")
 left, right = st.columns(2)
-label = left.text_input("Left", "")
-message = right.text_input("Right", "🪢 Featured extra")
+label = left.text_input("Left", "left")
+message = right.text_input("Right", "right")
 # color = st.selectbox("Choose color", ("Show me a bunch!", "green", "yellow", "custom"))
 
 # with st.expander("Advanced options"):
