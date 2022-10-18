@@ -1,10 +1,12 @@
 from itertools import cycle, islice
-from pathlib import Path
 
 import streamlit as st
 from htbuilder import a, img
 
 from shieldit import CSS_DEFAULT_COLORS, SHIELD_DEFAULT_COLORS, ShieldBadge
+
+# from pathlib import Path
+
 
 st.title("🛡️ Badge generator")
 
@@ -13,12 +15,12 @@ This app helps you finding the ideal **custom** [Shields badge](https://shields.
 """
 
 
-@st.experimental_singleton
-def get_simple_icons():
-    return Path("simple-icons.txt").read_text().splitlines()
+# @st.experimental_singleton
+# def get_simple_icons():
+#     return Path("simple-icons.txt").read_text().splitlines()
 
 
-simple_icons = [""] + get_simple_icons()
+# simple_icons = [""] + get_simple_icons()
 
 st.subheader("Step 1: Give your inputs")
 middle = st.columns(7)[3]
