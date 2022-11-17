@@ -11,9 +11,8 @@ from shieldit import CSS_DEFAULT_COLORS, SHIELD_DEFAULT_COLORS, ShieldBadge
 st.title("🛡️ Badge generator")
 
 """
-This app helps you finding the ideal **custom** [Shields badge](https://shields.io/) you are looking for!
+This app helps you find the ideal **custom** [Shields badge](https://shields.io/) you are looking for!
 """
-
 
 # @st.experimental_singleton
 # def get_simple_icons():
@@ -28,19 +27,23 @@ st.subheader("Step 1: Give your inputs")
 left, right = st.columns(2)
 label = left.text_input("Left", "left")
 message = right.text_input("Right", "right")
-# color = st.selectbox("Choose color", ("Show me a bunch!", "green", "yellow", "custom"))
 
-# with st.expander("Advanced options"):
-#     style = st.selectbox(
-#         "Choose style", ("plastic", "flat", "flat-square", "for-the-badge", "social")
-#     )
-#     label_color = st.selectbox("Color", options=("#565656", "custom"))
-#     if label_color == "custom":
-#         _, indented_container = st.columns((1, 35))
-#         label_color = indented_container.color_picker(
-#             "↳ Pick a custom color", key=label_color
-#         )
-#     logo = st.selectbox("Logo", options=simple_icons)
+# Badge style
+with st.expander("Advanced options"):
+     style = st.selectbox(
+         "Choose style", ("plastic", "flat", "flat-square", "for-the-badge", "social")
+     )
+     
+# Set background color for the left part
+label_color = st.selectbox("Color", options=("#565656", "custom"))
+if label_color == "custom":
+         _, indented_container = st.columns((1, 35))
+         label_color = indented_container.color_picker(
+             "↳ Pick a custom color", key=label_color
+         )
+
+# Simple-icons support
+logo = st.text_input("Logo", "logo")
 
 
 def display_badge(badge: ShieldBadge):
@@ -68,8 +71,8 @@ for row in range(len(colors) // num_columns):
                 label=label,
                 message=message,
                 color=next(colors_cycle),
-                # style=style,
-                # logo=logo,
-                # label_color=label_color,
+                style=style,
+                logo=logo,
+                label_color=label_color,
             )
             display_badge(badge)
