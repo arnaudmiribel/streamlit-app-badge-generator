@@ -68,11 +68,14 @@ class ShieldBadge:
             if self.color in SHIELD_DEFAULT_COLORS
             else pydantic.color.Color(self.color).as_hex().replace("#", "")
         )
+        encoded_label_color = pydantic.color.Color(self.label_color).as_hex().replace("#", "")
         return (
             f"https://img.shields.io/badge/"
             + "-".join((encoded_label, encoded_message, encoded_color))
-            # + "?"
-            # + f"&style={self.style}"
+            + "?"
+            + f"&style={self.style}"
+            + f"&labelColor={encoded_label_color}"
+            + f"&logo={self.logo}"
             # if self.style not in (None, "")
             # else "" + f"&logo={self.logo}"
             # if self.logo not in (None, "")
