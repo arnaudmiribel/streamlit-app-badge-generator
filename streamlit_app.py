@@ -66,14 +66,14 @@ with st.expander("Advanced options"):
     logo = st.selectbox("Logo", options=(simple_icons))
 
     # Icons color support
-    logo_color = st.selectbox("Logo Color", options=("default", "choose_color"))
-    if logo_color == "default":
-        logo_color = "#fff"
+    #logo_color = st.selectbox("Logo Color", options=("default", "choose_color"))
+    #if logo_color == "default":
+    #    logo_color = "#fff"
     
-    if logo_color == "choose_color":
-        logo_color = st.color_picker(
-            "Pick a color", key=logo_color
-        )
+    #if logo_color == "choose_color":
+    #    logo_color = st.color_picker(
+    #        "Pick a color", key=logo_color
+    #    )
 
 ##################################################################################
 # Badge Results Section
@@ -105,7 +105,7 @@ with tab1:
                     style=style,
                     logo=logo,
                     label_color=label_color,
-                    logo_color=logo_color,
+                    #logo_color=logo_color,
                     )
                 display_badge(badge)
 
@@ -124,6 +124,6 @@ with tab2:
         style=style_1,
         logo=logo,
         label_color=label_color,
-        logo_color=logo_color,
+        #logo_color=logo_color,
         )
     display_badge(badge_1)
