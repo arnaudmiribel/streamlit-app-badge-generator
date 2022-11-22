@@ -47,7 +47,7 @@ class ShieldBadge:
         logo: str = None,
         style: str = None,
         label_color: str = None,
-        logo_color: str = None,
+        #logo_color: str = None,
     ):
         self.label: str = label
         self.message = message
@@ -55,7 +55,7 @@ class ShieldBadge:
         self.logo = logo
         self.style = style
         self.label_color = label_color
-        self.logo_color = logo_color
+        #self.logo_color = logo_color
         self.link: str = self._create_link()
 
     @staticmethod
@@ -71,7 +71,7 @@ class ShieldBadge:
             else pydantic.color.Color(self.color).as_hex().replace("#", "")
         )
         encoded_label_color = pydantic.color.Color(self.label_color).as_hex().replace("#", "")
-        encoded_logo_color = pydantic.color.Color(self.logo_color).as_hex().replace("#", "")
+        #encoded_logo_color = pydantic.color.Color(self.logo_color).as_hex().replace("#", "")
         return (
             f"https://img.shields.io/badge/"
             + "-".join((encoded_label, encoded_message, encoded_color))
@@ -79,7 +79,7 @@ class ShieldBadge:
             + f"&style={self.style}"
             + f"&labelColor={encoded_label_color}"
             + f"&logo={self.logo}"
-            + f"&logoColor={encoded_logo_color}"
+            # + f"&logoColor={encoded_logo_color}"
             # if self.style not in (None, "")
             # else "" + f"&logo={self.logo}"
             # if self.logo not in (None, "")
